@@ -1,15 +1,12 @@
 /**
- * The landing page is a separate Next.js app from web-app (different
- * stack: MUI here, Tailwind/DaisyUI there), so "Sign in" / "Get started"
- * CTAs link out to web-app's own routes rather than rendering forms here.
- * NEXT_PUBLIC_APP_URL should point at wherever web-app is deployed; falls
- * back to the local dev port so `next dev` works out of the box.
+ * web-app isn't deployed publicly yet, so every "Sign in" / "Get started"
+ * CTA on the landing page points at an in-app dummy login screen instead
+ * of web-app's real auth routes. Swap these back to web-app's deployed
+ * URL (e.g. via NEXT_PUBLIC_APP_URL + '/sign-in') once it's hosted.
  */
-const APP_URL = process.env.NEXT_PUBLIC_APP_URL ?? 'http://localhost:3000'
-
 export const APP_LINKS = {
-  signIn: `${APP_URL}/sign-in`,
-  customerSignUp: `${APP_URL}/sign-up`,
-  solverSignIn: `${APP_URL}/solver/sign-in`,
-  solverSignUp: `${APP_URL}/solver/sign-up`,
+  signIn: '/login?role=customer',
+  customerSignUp: '/login?role=customer',
+  solverSignIn: '/login?role=solver',
+  solverSignUp: '/login?role=solver',
 } as const
