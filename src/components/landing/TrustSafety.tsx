@@ -7,6 +7,7 @@ import VerifiedUserRoundedIcon from '@mui/icons-material/VerifiedUserRounded'
 import LockRoundedIcon from '@mui/icons-material/LockRounded'
 import ReviewsRoundedIcon from '@mui/icons-material/ReviewsRounded'
 import GavelRoundedIcon from '@mui/icons-material/GavelRounded'
+import { Reveal } from './Reveal'
 
 const PILLARS = [
   {
@@ -35,18 +36,21 @@ export function TrustSafety() {
   return (
     <Box sx={{ py: { xs: 8, md: 12 }, bgcolor: 'primary.main', color: '#fff' }}>
       <Container maxWidth="lg">
-        <Stack spacing={1.5} sx={{ mb: 6, maxWidth: 640 }}>
-          <Typography variant="overline" sx={{ color: 'rgba(255,255,255,0.7)', fontWeight: 700, letterSpacing: 1 }}>
-            Trust & safety
-          </Typography>
-          <Typography variant="h2" sx={{ fontSize: { xs: '1.9rem', md: '2.3rem' } }}>
-            Built so you can trust someone you&apos;ve never met
-          </Typography>
-        </Stack>
+        <Reveal>
+          <Stack spacing={1.5} sx={{ mb: 6, maxWidth: 640 }}>
+            <Typography variant="overline" sx={{ color: 'rgba(255,255,255,0.7)', fontWeight: 700, letterSpacing: 1 }}>
+              Trust & safety
+            </Typography>
+            <Typography variant="h2" sx={{ fontSize: { xs: '1.9rem', md: '2.3rem' } }}>
+              Built so you can trust someone you&apos;ve never met
+            </Typography>
+          </Stack>
+        </Reveal>
 
         <Grid container spacing={4}>
-          {PILLARS.map((pillar) => (
+          {PILLARS.map((pillar, index) => (
             <Grid key={pillar.title} size={{ xs: 12, sm: 6, md: 3 }}>
+            <Reveal delayMs={index * 80}>
               <Box
                 sx={{
                   width: 48,
@@ -67,6 +71,7 @@ export function TrustSafety() {
               <Typography variant="body2" sx={{ color: 'rgba(255,255,255,0.75)' }}>
                 {pillar.body}
               </Typography>
+            </Reveal>
             </Grid>
           ))}
         </Grid>

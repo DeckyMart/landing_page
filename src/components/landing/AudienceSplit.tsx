@@ -10,6 +10,7 @@ import ArrowForwardRoundedIcon from '@mui/icons-material/ArrowForwardRounded'
 import PersonRoundedIcon from '@mui/icons-material/PersonRounded'
 import EngineeringRoundedIcon from '@mui/icons-material/EngineeringRounded'
 import { APP_LINKS } from '@/lib/appLinks'
+import { Reveal } from './Reveal'
 
 function AudiencePanel({
   icon: Icon,
@@ -90,47 +91,53 @@ export function AudienceSplit() {
   return (
     <Box id="solvers" sx={{ py: { xs: 8, md: 12 } }}>
       <Container maxWidth="lg">
-        <Stack spacing={1.5} sx={{ mb: 6, maxWidth: 640 }}>
-          <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 700, letterSpacing: 1 }}>
-            Built for both sides of the job
-          </Typography>
-          <Typography variant="h2" sx={{ fontSize: { xs: '1.9rem', md: '2.3rem' } }}>
-            Whichever side you&apos;re on, DeckyMart has you covered
-          </Typography>
-        </Stack>
+        <Reveal>
+          <Stack spacing={1.5} sx={{ mb: 6, maxWidth: 640 }}>
+            <Typography variant="overline" sx={{ color: 'primary.main', fontWeight: 700, letterSpacing: 1 }}>
+              Built for both sides of the job
+            </Typography>
+            <Typography variant="h2" sx={{ fontSize: { xs: '1.9rem', md: '2.3rem' } }}>
+              Whichever side you&apos;re on, DeckyMart has you covered
+            </Typography>
+          </Stack>
+        </Reveal>
 
         <Grid container spacing={4}>
           <Grid size={{ xs: 12, md: 6 }}>
-            <AudiencePanel
-              icon={PersonRoundedIcon}
-              tone="primary"
-              eyebrow="For customers"
-              title="Get it fixed without the runaround"
-              points={[
-                'Describe the problem in plain language — no categories to hunt through.',
-                'Compare ranked, verified Solvers by rating, distance and price before you choose.',
-                'Your payment stays protected until you confirm the work is done.',
-                'Message your Solver and track the job from acceptance to completion.',
-              ]}
-              ctaLabel="Get help now"
-              ctaHref={APP_LINKS.customerSignUp}
-            />
+            <Reveal sx={{ height: '100%' }}>
+              <AudiencePanel
+                icon={PersonRoundedIcon}
+                tone="primary"
+                eyebrow="For customers"
+                title="Get the right help without the runaround"
+                points={[
+                  'Describe the problem in plain language — no categories to hunt through.',
+                  'Compare ranked, verified Solvers by rating, distance and price before you choose.',
+                  'Your payment stays protected until you confirm the work is done.',
+                  'Message your Solver and track the job from acceptance to completion.',
+                ]}
+                ctaLabel="Get help now"
+                ctaHref={APP_LINKS.customerSignUp}
+              />
+            </Reveal>
           </Grid>
           <Grid size={{ xs: 12, md: 6 }}>
-            <AudiencePanel
-              icon={EngineeringRoundedIcon}
-              tone="success"
-              eyebrow="For Solvers"
-              title="Spend your time on jobs that fit you"
-              points={[
-                'Get matched to opportunities in your trade and service area — no cold leads.',
-                'Set your price and completion timeline on every offer you send.',
-                'Start work only once payment is confirmed secured, never before.',
-                'See exactly what you’ve earned and what’s still pending settlement.',
-              ]}
-              ctaLabel="Become a Solver"
-              ctaHref={APP_LINKS.solverSignUp}
-            />
+            <Reveal delayMs={90} sx={{ height: '100%' }}>
+              <AudiencePanel
+                icon={EngineeringRoundedIcon}
+                tone="success"
+                eyebrow="For Solvers"
+                title="Turn your skills into opportunities"
+                points={[
+                  'Get matched to opportunities in your trade and service area — no cold leads.',
+                  'Set your price and completion timeline on every offer you send.',
+                  'Start work only once payment is confirmed secured, never before.',
+                  'See exactly what you’ve earned and what’s still pending settlement.',
+                ]}
+                ctaLabel="Become a Solver"
+                ctaHref={APP_LINKS.solverSignUp}
+              />
+            </Reveal>
           </Grid>
         </Grid>
       </Container>

@@ -20,6 +20,7 @@ const NAV_LINKS = [
   { label: 'How it works', href: '#how-it-works' },
   { label: 'Trades we cover', href: '#trades' },
   { label: 'For Solvers', href: '#solvers' },
+  { label: 'Our team', href: '#team' },
   { label: 'FAQ', href: '#faq' },
 ]
 

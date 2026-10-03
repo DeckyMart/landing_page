@@ -18,6 +18,10 @@ const COLUMNS = [
     ],
   },
   {
+    title: 'Company',
+    links: [{ label: 'Our team', href: '#team' }],
+  },
+  {
     title: 'Customers',
     links: [
       { label: 'Get help now', href: APP_LINKS.customerSignUp },
@@ -25,7 +29,7 @@ const COLUMNS = [
     ],
   },
   {
-    title: 'Solvers',
+    title: 'For Solvers',
     links: [
       { label: 'Become a Solver', href: APP_LINKS.solverSignUp },
       { label: 'Solver sign in', href: APP_LINKS.solverSignIn },
@@ -52,7 +56,7 @@ export function Footer() {
           </Grid>
 
           {COLUMNS.map((column) => (
-            <Grid key={column.title} size={{ xs: 6, md: 2.5 }}>
+            <Grid key={column.title} size={{ xs: 6, md: 2 }}>
               <Typography variant="subtitle2" sx={{ fontWeight: 700, mb: 2 }}>
                 {column.title}
               </Typography>
